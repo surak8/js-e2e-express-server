@@ -43,4 +43,3 @@ steps:
     script: |
       echo "hi"
       echo RIKTEST = $(RIKTEST)
-      SET
