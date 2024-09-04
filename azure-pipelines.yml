@@ -37,3 +37,13 @@ steps:
     targetPath: '$(Build.ArtifactStagingDirectory)'
     publishLocation: 'pipeline'
   displayName: 'Publish npm artifact'
+
+- task: CmdLine@1
+  displayName: dn-1
+  inputs:
+    script: bats-test\bat1.bat
+
+- task: CmdLine@2
+  displayName: dn-2
+  inputs:
+    script: bats-test\bat2.bat
