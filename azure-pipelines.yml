@@ -41,5 +41,7 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      echo "hi"
       echo RIKTEST = $(RIKTEST)
+      echo SET is:
+      set
+
