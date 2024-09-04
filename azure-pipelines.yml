@@ -38,12 +38,8 @@ steps:
     publishLocation: 'pipeline'
   displayName: 'Publish npm artifact'
 
-- task: CmdLine@1
-  displayName: dn-1
-  inputs:
-    filename: bats-test\bat1.bat
-
 - task: CmdLine@2
-  displayName: dn-2
   inputs:
-    filename: bats-test\bat2.bat
+    script: |
+      ECHO "hi"
+      SET
