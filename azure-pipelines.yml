@@ -41,9 +41,9 @@ steps:
 - task: CmdLine@1
   displayName: dn-1
   inputs:
-    script: bats-test\bat1.bat
+    filename: bats-test\bat1.bat
 
 - task: CmdLine@2
   displayName: dn-2
   inputs:
-    script: bats-test\bat2.bat
+    filename: bats-test\bat2.bat
