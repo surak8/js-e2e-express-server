@@ -10,17 +10,17 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: CmdLine@2
-  displayName: try bat1.bat?
-  env:
-    TASK_STEP_NAME: HERE-1
-  inputs:
-    script: |
-      echo "TASK_STEP_NAME                =$(TASK_STEP_NAME)" 
-      echo "MSG                           = $(CMDLINE_2_MSG)" 
-      echo "Build.SourcesDirectory        = $(Build.SourcesDirectory)" 
-      echo "Build.ArtifactStagingDirectory= $(Build.ArtifactStagingDirectory)" 
-      exit 98
+# - task: CmdLine@2
+#   displayName: try bat1.bat?
+#   env:
+#     TASK_STEP_NAME: HERE-1
+#   inputs:
+#     script: |
+#       echo "TASK_STEP_NAME                =$(TASK_STEP_NAME)" 
+#       echo "MSG                           = $(CMDLINE_2_MSG)" 
+#       echo "Build.SourcesDirectory        = $(Build.SourcesDirectory)" 
+#       echo "Build.ArtifactStagingDirectory= $(Build.ArtifactStagingDirectory)" 
+#       exit 98
 - task: NodeTool@0
   inputs:
     versionSpec: '16.x'
@@ -39,6 +39,7 @@ steps:
     contents: |
        src/*
        public/*
+       bats-test/*
     targetFolder: '$(Build.ArtifactStagingDirectory)'
   displayName: 'Copy project files'
 
