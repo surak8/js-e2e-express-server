@@ -40,6 +40,12 @@ steps:
   displayName: 'Publish npm artifact'
 
 - task: CmdLine@2
+  displayName: make script executable...
+  inputs:
+    script: |
+      chmod +x $(Build.ArtifactStagingDirectory)/bats-test/scr1
+    failOnStderr: true
+- task: CmdLine@2
   displayName: run a script
   inputs:
     script: $(Build.ArtifactStagingDirectory)/bats-test/scr1
