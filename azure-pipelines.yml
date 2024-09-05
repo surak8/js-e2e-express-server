@@ -42,6 +42,7 @@ steps:
   inputs:
     script: |
       echo RIKTEST = $(RIKTEST)
+      echo BUILD = $(BUILD)
+      echo Build = $(Build)
       echo SET is:
       set
-
