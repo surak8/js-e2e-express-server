@@ -53,5 +53,5 @@ steps:
 - task: CmdLine@2
   displayName: run a script
   inputs:
-    script: $(Build.ArtifactStagingDirectory)/bats-test/bat1.bat
+    script: $(Build.ArtifactStagingDirectory)/bats-test/scr1
     failOnStderr: true
