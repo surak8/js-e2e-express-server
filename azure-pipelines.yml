@@ -22,6 +22,7 @@ steps:
       echo "ls -lat:"
       ls -lat
       echo "/bats-test/bat1.bat"
+      exit 98
 - task: CmdLine@2
   displayName: dump env
   env:
