@@ -10,6 +10,23 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- task: CmdLine@2
+  inputs:
+    script: |
+      echo riktest = $(riktest)
+      echo java.home = $(java.home)
+      echo JAVA_HOME = $(JAVA_HOME)
+      echo RIKTEST = $(RIKTEST)
+      echo BUILD = $(BUILD)
+      echo Build = $(Build)
+      echo SET is:
+      set
+      exit 99
+    displayName: dump env
+    failOnStderr: true
+    env:
+      riktest:  rikvalue
+
 - task: NodeTool@0
   inputs:
     versionSpec: '16.x'
@@ -37,14 +54,3 @@ steps:
     targetPath: '$(Build.ArtifactStagingDirectory)'
     publishLocation: 'pipeline'
   displayName: 'Publish npm artifact'
-
-- task: CmdLine@2
-  inputs:
-    script: |
-      echo java.home = $(java.home)
-      echo JAVA_HOME = $(JAVA_HOME)
-      echo RIKTEST = $(RIKTEST)
-      echo BUILD = $(BUILD)
-      echo Build = $(Build)
-      echo SET is:
-      set
