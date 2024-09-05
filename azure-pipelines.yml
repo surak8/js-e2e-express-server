@@ -15,6 +15,9 @@ steps:
   inputs:
     script: |
       echo "ack"
+      echo "pwd:"
+      pwd
+      echo "ls -lat:"
       ls -lat
       echo "/bats-test/bat1.bat"
 - task: CmdLine@2
