@@ -1,2 +1,2 @@
 #!/usr/bin/bash
-echo "here: script-name is: $0 or ${0} "
+echo "here: script-name is: '$0' or '${0}'"
