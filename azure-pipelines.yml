@@ -47,10 +47,7 @@ steps:
       cp -fp $(Build.SourcesDirectory)/bats-test/scr1 $(Build.ArtifactStagingDirectory)
       echo "chmod +x $(Build.ArtifactStagingDirectory)/bats-test/scr1"
       chmod +x $(Build.ArtifactStagingDirectory)/bats-test/scr1
+      echo "$(Build.ArtifactStagingDirectory)/bats-test/scr1 [EXEC]"
+      "$(Build.ArtifactStagingDirectory)/bats-test/scr1"
     failOnStderr: true
-
-- task: CmdLine@2
-  displayName: run a script
-  inputs:
-    script: $(Build.ArtifactStagingDirectory)/bats-test/scr1
-    failOnStderr: true
+  
