@@ -12,33 +12,13 @@ pool:
 steps:
 - task: CmdLine@2
   displayName: try bat1.bat?
-  inputs:
-    script: |
-      echo "MSG=" 
-      echo $(CMDLINE_2_MSG)
-      echo "ack"
-      echo "pwd:"
-      pwd
-      echo "ls -lat:"
-      ls -lat
-      echo "/bats-test/bat1.bat"
-      exit 98
-- task: CmdLine@2
-  displayName: dump env
   env:
-    riktest:  rikvalue
+    task_step_name: HERE-1
   inputs:
     script: |
-      echo riktest = $(riktest)
-      echo java.home = $(java.home)
-      echo JAVA_HOME = $(JAVA_HOME)
-      echo RIKTEST = $(RIKTEST)
-      echo BUILD = $(BUILD)
-      echo Build = $(Build)
-      echo SET is:
-      set
-      exit 99
-    failOnStderr: true
+      echo "TASK_STEP_NAME=$(TASK_STEP_NAME)" 
+      echo "MSG=$(CMDLINE_2_MSG)" 
+      exit 98
 - task: NodeTool@0
   inputs:
     versionSpec: '16.x'
