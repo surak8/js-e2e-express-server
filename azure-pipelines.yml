@@ -9,6 +9,11 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  - name: script_dir
+    value:  bats-test
+  - name: script1
+    value: scr1
 steps:
 - task: NodeTool@0
   inputs:
@@ -43,11 +48,11 @@ steps:
   displayName: copy / exec script
   inputs:
     script: |
-      echo "cp -fp $(Build.SourcesDirectory)/bats-test/scr1 $(Build.ArtifactStagingDirectory)"
-      cp -fp $(Build.SourcesDirectory)/bats-test/scr1 $(Build.ArtifactStagingDirectory)
-      echo "chmod +x $(Build.ArtifactStagingDirectory)/bats-test/scr1"
-      chmod +x $(Build.ArtifactStagingDirectory)/bats-test/scr1
-      echo "$(Build.ArtifactStagingDirectory)/bats-test/scr1 [EXEC]"
-      "$(Build.ArtifactStagingDirectory)/bats-test/scr1"
+      #cp -fp $(Build.SourcesDirectory)/bats-test/scr1 $(Build.ArtifactStagingDirectory)
+      #chmod +x $(Build.ArtifactStagingDirectory)/bats-test/scr1
+      #$(Build.ArtifactStagingDirectory)/bats-test/scr1
+      cp -fp $(Build.SourcesDirectory)/$(script_dir)/$(script1) $(Build.ArtifactStagingDirectory)
+      chmod +x $(Build.ArtifactStagingDirectory)/$(script_dir)/$(script1)
+      $(Build.ArtifactStagingDirectory)/$(script_dir)/$(script1)
     failOnStderr: true
   
