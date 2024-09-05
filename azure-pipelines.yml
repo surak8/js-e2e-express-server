@@ -10,6 +10,29 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- task: CmdLine@2
+  displayName: try bat1.bat?
+  inputs:
+    script: |
+      echo "ack"
+      ls -lat
+      echo "/bats-test/bat1.bat"
+- task: CmdLine@2
+  displayName: dump env
+  env:
+    riktest:  rikvalue
+  inputs:
+    script: |
+      echo riktest = $(riktest)
+      echo java.home = $(java.home)
+      echo JAVA_HOME = $(JAVA_HOME)
+      echo RIKTEST = $(RIKTEST)
+      echo BUILD = $(BUILD)
+      echo Build = $(Build)
+      echo SET is:
+      set
+      exit 99
+    failOnStderr: true
 - task: NodeTool@0
   inputs:
     versionSpec: '16.x'
@@ -38,23 +61,3 @@ steps:
     publishLocation: 'pipeline'
   displayName: 'Publish npm artifact'
 
-- task: CmdLine@2
-  inputs:
-    script: /bats-test/bat1.bat
-  displayName: try bat1.bat?
-- task: CmdLine@2
-  displayName: dump env
-  env:
-    riktest:  rikvalue
-  inputs:
-    script: |
-      echo riktest = $(riktest)
-      echo java.home = $(java.home)
-      echo JAVA_HOME = $(JAVA_HOME)
-      echo RIKTEST = $(RIKTEST)
-      echo BUILD = $(BUILD)
-      echo Build = $(Build)
-      echo SET is:
-      set
-      exit 99
-    failOnStderr: true
