@@ -14,6 +14,8 @@ steps:
   displayName: try bat1.bat?
   inputs:
     script: |
+      echo "MSG=" 
+      echo $(CMDLINE_2_MSG)
       echo "ack"
       echo "pwd:"
       pwd
